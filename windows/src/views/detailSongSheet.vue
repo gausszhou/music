@@ -43,7 +43,7 @@
               <td>
                 <div class="img-wrap">
                   <img :src="item.al.picUrl" alt />
-                  <span class="iconfont icon-play" @click="playMusic(item)"></span>
+                  <span class="iconfont icon-play" @click="getMusic(item)"></span>
                 </div>
               </td>
               <td>
@@ -176,9 +176,8 @@ export default {
         }
       });
     },
-    playMusic(item) {
-      console.log(item.id);
-      this.$store.dispatch('getMusicUrl', item.id);
+    getMusic(item) {
+      this.$store.dispatch('getMusic', item);
     },
     handleCurrentChangesongs(val) {
       this.songspage = val;

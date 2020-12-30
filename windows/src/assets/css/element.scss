@@ -1,0 +1,43 @@
+.el-dialog__footer {
+  display: flex;
+  justify-content: center;
+}
+
+.el-dialog .el-input {
+  max-width: 300px;
+}
+
+.back-button {
+  display: inline-block;
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin: 0 0 10px 0;
+  background-color: #fbfbfb;
+}
+
+.right-box {
+  .el-input {
+    margin-right: 50px;
+    .el-input__prefix {
+      margin-left: 0px;
+    }
+  }
+}
+
+.el-slider {
+  .el-slider__runway {
+    margin: 0;
+    height: 4px;
+    .el-slider__bar {
+      height: 4px;
+      border-radius: 4px;
+    }
+    .el-slider__button-wrapper {
+      top: -16px;
+    }
+    .el-tooltip {
+      height: 8px;
+      width: 8px;
+    }
+  }
+}

@@ -12,6 +12,16 @@ filters.install = Vue => {
     sec = sec < 10 ? '0' + sec : sec;
     return `${min}:${sec}`;
   });
+  // 处理时长 毫秒 转为 分秒
+  Vue.filter('stotime', value => {
+    let duration = value;
+    let min = parseInt(duration / 60);
+    min = min < 10 ? '0' + min : min;
+    let sec = parseInt(duration % 60);
+    sec = sec < 10 ? '0' + sec : sec;
+    return `${min}:${sec}`;
+  });
+
   // 处理次数 转为 万 亿
   Vue.filter('numbertocount', value => {
     if (value > 10000) {

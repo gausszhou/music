@@ -1,6 +1,15 @@
 export default {
-  // 歌曲地址
-  musicUrl: '',
+  // 歌曲对象
+  song: {},
+  // 播放列表
+  playList: [],
+  // 当前播放歌曲的序号
+  activeIndex: 0,
+  // 控制播放
+  isPlay: false,
+  // 控制显示
+  isShow: false,
   // 查询参数
-  query: ''
+  query: '',
+  menuVisible: false,
 };

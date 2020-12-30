@@ -73,6 +73,10 @@ export default {
 </script>
 
 <style scoped>
+.top-container {
+  z-index: 10;
+  min-width: 1366px;
+}
 .button-login {
   margin: 0 10px;
 }

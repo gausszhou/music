@@ -26,7 +26,7 @@
           <td>
             <div class="img-wrap">
               <img :src="item.album.picUrl" alt />
-              <span @click="playMusic(item)" class="iconfont icon-play"></span>
+              <span @click="getMusic(item)" class="iconfont icon-play"></span>
             </div>
           </td>
           <td>
@@ -104,8 +104,8 @@ export default {
 
     },
     // 播放歌曲
-    playMusic(item) {
-      this.$store.dispatch('getMusicUrl', item.id);
+    getMusic(item) {
+      this.$store.dispatch('getMusic', item);
     },
     handleCurrentChange(page) {
       this.page = page;

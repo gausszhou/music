@@ -7,9 +7,7 @@
       <router-view></router-view>
     </div>
     <!-- 播放标签 -->
-    <div class="player">
-      <audio-vue></audio-vue>
-    </div>
+    <audio-vue></audio-vue>
   </div>
 </template>
 

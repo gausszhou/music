@@ -10,7 +10,7 @@
     <div class="recommend">
       <h3 class="title">推荐歌单</h3>
       <div class="items">
-        <div class="item" v-for="(item, index) in list" :key="index" @click="toSongSheetDetail(item)">
+        <div class="item" v-for="(item, index) in list" :key="index" @click="toDetailSongSheet(item)">
           <div class="img-wrap">
             <div class="desc-wrap">
               <span class="desc">{{ item.copywriter }}</span>
@@ -29,7 +29,7 @@
         <div class="item" v-for="(item, index) in songs" :key="index">
           <div class="img-wrap">
             <img :src="item.picUrl" alt />
-            <span @click="playMusic(item)" class="iconfont ft_16 icon-play"></span>
+            <span class="iconfont ft_16 icon-play" @click="getMusic(item)"></span>
           </div>
           <div class="song-wrap">
             <div class="song-name">{{ item.name }}</div>
@@ -42,7 +42,7 @@
     <div class="mvs">
       <h3 class="title">推荐MV</h3>
       <div class="items">
-        <div class="item" v-for="(item,index) in mvs" :key="index" @click="playMV(item)">
+        <div class="item" v-for="(item,index) in mvs" :key="index" @click="toDetailMV(item)">
           <div class="img-wrap">
             <img :src="item.picUrl" alt />
             <span class="iconfont icon-play"></span>
@@ -73,7 +73,6 @@
         </div>
       </div>
     </div>
-    <!-- 主播电台 -->
   </div>
 </template>
 
@@ -97,13 +96,16 @@ export default {
     };
   },
   created() {
-    this.getBanner();
-    this.getPersonalized();
-    this.getPrivatecontent();
-    this.getNewSong();
-    this.getNewMV();
+    this.getData();
   },
   methods: {
+    getData() {
+      this.getBanner();
+      this.getPersonalized();
+      this.getNewSong();
+      this.getNewMV();
+      this.getPrivatecontent();
+    },
     getBanner() {
       this.$http.getBanner().then(res => {
         this.banners = res.data.banners;
@@ -117,7 +119,6 @@ export default {
         this.list = res.data.result;
       });
     },
-
     getNewSong() {
       let params = {
         limit: 12
@@ -136,18 +137,7 @@ export default {
         this.contents = res.data.result;
       });
     },
-    playMusic(item) {
-      this.$store.dispatch('getMusicUrl', item.id);
-    },
-    playMV(item) {
-      this.$router.push({
-        name: 'detailMV',
-        query: {
-          mvid: item.id
-        }
-      });
-    },
-    toSongSheetDetail(item) {
+    toDetailSongSheet(item) {
       this.$router.push({
         name: 'detailSongSheet',
         query: {
@@ -155,6 +145,18 @@ export default {
         }
       });
     },
+    getMusic(item) {
+      this.$store.dispatch('getMusic', item);
+    },
+    toDetailMV(item) {
+      this.$router.push({
+        name: 'detailMV',
+        query: {
+          mvid: item.id
+        }
+      });
+    },
+
   }
 }
 </script>

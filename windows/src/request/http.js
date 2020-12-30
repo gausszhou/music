@@ -34,6 +34,12 @@ const http = {
   /* 通用方法 */
   // 获取歌曲地址 /song/url id
   getSongUrl: (params) => axios.get(baseUrl + '/song/url' + serialize(params)),
+  // 获取歌曲详情 /song/detail?ids=347230,347231
+  getSongDetail: (params) => axios.get(baseUrl + '/song/detail' + serialize(params)),
+  // 获取MV视频地址 /mv/url id
+  getMVUrl: (params) => axios.get(baseUrl + '/mv/url' + serialize(params)),
+  // 获取MV详情 /mv/detail mvid
+  getMVDetail: (params) => axios.get(baseUrl + '/mv/detail' + serialize(params)),
 
   /* 顶部搜索 */
   // 获取搜索列表 /search
@@ -82,19 +88,16 @@ const http = {
 
 
   // MV详情
-  // 获取MV视频地址 /mv/url id
-  getMVUrl: (params) => axios.get(baseUrl + '/mv/url' + serialize(params)),
-  // 获取MV详情 /mv/detail mvid
-  getMVDetail: (params) => axios.get(baseUrl + '/mv/detail' + serialize(params)),
+
+
   // 获取相似MV /simi/mv mvid
   getSimiMV: (params) => axios.get(baseUrl + '/simi/mv' + serialize(params)),
   // 获取MV评论  /comment/mv
   getCommentMV: (params) => axios.get(baseUrl + '/comment/mv' + serialize(params)),
 
-  // 歌单详情
+  // 歌单详情 /playlist/detail id
   getPlayListDetail: (params) => axios.get(baseUrl + '/playlist/detail' + serialize(params)),
-  // 获取歌曲详情 /song/detail?ids=347230,347231
-  getSongDetail: (params) => axios.get(baseUrl + '/song/detail' + serialize(params)),
+
   // 获取歌单评论 /comment/playlist
   getCommentPlayList: (params) => axios.get(baseUrl + '/comment/playlist' + serialize(params)),
   // 获取热门评论  /comment/hot

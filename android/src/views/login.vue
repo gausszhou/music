@@ -32,7 +32,7 @@ export default {
       this.$http.login(params).then((res) => {
         console.log(res.data.profile.userId);
         localStorage.setItem('loginData', JSON.stringify(res.data));
-        this.goto('nethome');
+        this.goto('home');
       });
     },
     goto(name) {

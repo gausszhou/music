@@ -47,5 +47,14 @@ export default {
   getNetDetail: (params) => axios.get(baseUrl + "/song/detail" + serialize(params)),
   // youdao 
   getWordList: () => axios.get(localUrl + "/word.json"),
+
+  // 歌单详情 /playlist/detail id
+  getPlayListDetail: (params) => axios.get(baseUrl + '/playlist/detail' + serialize(params)),
+  // 获取歌曲详情 /song/detail?ids=347230,347231
+  getSongDetail: (params) => axios.get(baseUrl + '/song/detail' + serialize(params)),
+  // 获取歌单评论 /comment/playlist
+  getCommentPlayList: (params) => axios.get(baseUrl + '/comment/playlist' + serialize(params)),
+  // 获取热门评论  /comment/hot
+  getCommentHot: (params) => axios.get(baseUrl + '/comment/hot' + serialize(params)),
 };
 

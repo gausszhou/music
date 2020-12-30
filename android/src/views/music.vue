@@ -1,9 +1,6 @@
 <template>
   <div class="page-container">
-    <keep-alive>
-      <router-view></router-view>
-    </keep-alive>
-    
+    <router-view></router-view>
   </div>
 </template>
 
@@ -11,12 +8,12 @@
 
 
 export default {
-  components: {    
+  components: {
 
   },
-  data(){
-    return{
-    }
+  data() {
+    return {
+    };
   },
   methods: {
   },
@@ -24,5 +21,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 </style>

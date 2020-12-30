@@ -1,16 +1,16 @@
 <template>
   <md-bottom-bar class="tabbar">
-    <md-bottom-bar-item @click="goto('nethome')" :class="$route.name=='netmusic'? 'active':'default'">
+    <md-bottom-bar-item @click="goto('home')" :class="$route.path.includes('music')? 'active':'default'">
       <i class="tabbaricon iconfont iconxianshi2"></i>
-      <p>云音乐</p>
+      <p>听音乐</p>
     </md-bottom-bar-item>
     <md-bottom-bar-item @click="goto('youdao')" :class="$route.name=='youdao'? 'active':'default'">
       <i class="tabbaricon iconfont iconditu1"></i>
-      <p>有道</p>
+      <p>背单词</p>
     </md-bottom-bar-item>
-    <md-bottom-bar-item @click="goto('blog')" :class="$route.name=='blog'? 'active':'default'">
+    <md-bottom-bar-item @click="goto('note')" :class="$route.name=='note'? 'active':'default'">
       <i class="tabbaricon iconfont iconditu1"></i>
-      <p>在线博客</p>
+      <p>看博客</p>
     </md-bottom-bar-item>
   </md-bottom-bar>
 </template>

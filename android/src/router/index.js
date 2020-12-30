@@ -13,39 +13,44 @@ const routes = [
   {
     name: "login",
     path: '/login',
-    component: () => import("../views/login.vue")
+    component: () => import("@/views/login.vue")
   },
   {
     name: "index",
     path: '/index',
-    component: () => import("../views/index.vue"),
+    component: () => import("@/views/index.vue"),
     children: [
       {
-        name: "netmusic",
-        path: '/netmusic',
-        component: () => import("../views/netmusic.vue"),
+        name: "music",
+        path: 'music',
+        component: () => import("@/views/music.vue"),
         children: [
           {
-            name: "nethome",
-            path: '/nethome',
-            component: () => import("../views/nethome.vue")
+            name: "home",
+            path: 'home',
+            component: () => import("@/components/music/home.vue")
           },
           {
-            name: "netsearch",
-            path: '/netsearch',
-            component: () => import("../views/netsearch.vue")
+            name: "search",
+            path: 'search',
+            component: () => import("@/components/music/search.vue")
+          },
+          {
+            name: "detail",
+            path: 'detail',
+            component: () => import("@/components/music/detail.vue")
           },
         ]
       },
       {
         name: "youdao",
-        path: '/youdao',
-        component: () => import("../views/youdao.vue"),
+        path: 'youdao',
+        component: () => import("@/views/youdao.vue"),
       },
       {
-        name: "blog",
-        path: '/blog',
-        component: () => import("../views/blog.vue"),
+        name: "note",
+        path: 'note',
+        component: () => import("@/views/note.vue"),
       },
     ],
   },

@@ -1,6 +1,6 @@
 <template>
   <div class="blog">
-    <iframe src="https://gausszhou.top" id="frame" ></iframe>
+    <iframe src="https://gausszhou.top/" id="frame"></iframe>
   </div>
 </template>
 
@@ -11,8 +11,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-#frame{
+#frame {
   width: 100vw;
   height: 100vh;
 }

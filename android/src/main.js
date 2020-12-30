@@ -10,9 +10,9 @@ import 'vue-material/dist/vue-material.min.css';
 import 'vue-material/dist/theme/default.css';
 Vue.use(VueMaterial);
 
-import "./common/common.scss";
-import "./common/iconfont.css";
-import "./common/customize.scss";
+import "./assets/css//common.scss";
+import "./assets/css/iconfont.css";
+import "./assets/css/customize.scss";
 
 // 引入store,将store变为全局仓库
 import store from "./store";

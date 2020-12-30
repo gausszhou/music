@@ -1,7 +1,7 @@
 <template>
   <div>
     <md-app md-mode="fixed">
-      <md-app-toolbar class="md-dense" v-if="$route.name!='blog'">
+      <md-app-toolbar class="md-dense" v-if="$route.name!='note'">
         <headbar-vue></headbar-vue>
       </md-app-toolbar>
       <md-app-content>
@@ -16,9 +16,9 @@
 </template>
 
 <script>
-import headbarVue from "../components/headbar.vue";
-import tabbarVue from "../components/tabbar.vue";
-import audioVue from "../components/audio.vue";
+import headbarVue from "@/common/headbar.vue";
+import tabbarVue from "@/common/tabbar.vue";
+import audioVue from "@/common/audio.vue";
 export default {
   components: {
     headbarVue,
@@ -51,7 +51,6 @@ export default {
     .view {
       padding: 0;
       margin: 0;
-      padding-bottom: 60px;
       width: 100vw;
     }
   }

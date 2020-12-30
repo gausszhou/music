@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import songListVue from "../components/songList";
+import songListVue from "@/components/songList";
 export default {
   name: "search",
   components: {

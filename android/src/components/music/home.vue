@@ -3,7 +3,7 @@
     <div class="play-list-box">
       <h3 class="title">网友精选碟</h3>
       <ul class="play-list">
-        <li class="list-item" v-for="sheet in playList" :key="sheet.id">
+        <li class="list-item" v-for="sheet in playList" :key="sheet.id" @click="toDetail(sheet)">
           <i class="list-item-count">
             <i class="iconfont icon-yinyue list-item-count-icon"></i>
             {{toFixed(sheet.playCount)}}
@@ -22,8 +22,8 @@
 </template>
 
 <script>
-import playListVue from "../components/playList";
-import songListVue from "../components/songList";
+import playListVue from "@/components/playList";
+import songListVue from "@/components/songList";
 export default {
   name: 'home',
   components: {
@@ -72,6 +72,14 @@ export default {
           return (item / 10000).toFixed(1) + '万';
         }
       }
+    },
+    toDetail(item) {
+      this.$router.push({
+        name: 'detail',
+        query: {
+          id: item.id
+        }
+      });
     }
   },
 };

@@ -3,10 +3,12 @@
     <audio :src="audioUrl" autoplay></audio>
     <md-button class="button-random" @click="random">随机切换</md-button>
     <img class="language-pic" :src="type==1? UKUrl:USUrl" @click="toggle" />
-    <md-field class="input-box">
-      <label>模糊搜索</label>
-      <md-input class="input-search" v-model="search"></md-input>
-    </md-field>
+    <div class="input-box">
+      <md-field>
+        <label>模糊搜索</label>
+        <md-input class="input-search" v-model="search"></md-input>
+      </md-field>
+    </div>
     <div class="container candidate" v-if="list.length">
       <div class="word-card-box" v-for="(item,index) in list" :key="index" @click="play(item)">
         <md-card class="word-card">
@@ -92,6 +94,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.input-box {
+  margin: 0 5px;
+}
 .container {
   display: flex;
   flex-wrap: wrap;

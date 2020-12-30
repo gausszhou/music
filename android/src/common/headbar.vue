@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div class="md-toolbar-row" v-if="$route.name.includes('net')">
+    <div class="md-toolbar-row" v-if="$route.path.includes('music')">
       <md-tabs>
-        <md-tab id="tab-home" md-label="主页" @click="goto('nethome')"></md-tab>
-        <md-tab id="tab-search" md-label="搜索" @click="goto('netsearch')"></md-tab>
+        <md-tab id="tab-home" md-label="主页" @click="goto('home')"></md-tab>
+        <md-tab id="tab-search" md-label="搜索" @click="goto('search')"></md-tab>
       </md-tabs>
     </div>
   </div>

@@ -9,8 +9,11 @@ export default {
     let musicId = payload.musicId || payload.id;
     store.commit('setIsPlay', false);
     await http.getSongUrl({ id: musicId }).then(res => {
-      console.log(res);
-      if (res.data.data[0].url) audioUrl = res.data.data[0].url;
+      if (res.data.data[0].url) {
+        audioUrl = res.data.data[0].url;
+      } else {
+        store.commit('setMessage', '歌曲资源获取失败！！！' + '当前时间' + Date.now());
+      }
     });
     // 如果没有传递图片地址，则根据musicId主动获取
     if (!(picUrl && author[0] && albumname)) {
@@ -28,7 +31,6 @@ export default {
     list.forEach((item, index) => {
       if (item.musicId == song.musicId) {
         flag = false;
-        console.log(index);
         store.commit('setIndex', index);
       }
     });

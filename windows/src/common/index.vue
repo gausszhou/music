@@ -1,7 +1,7 @@
 <template>
   <div class="index-container">
     <!-- 导航区域 -->
-    <sidebar-vue></sidebar-vue>
+    <sidebar-vue class="side"></sidebar-vue>
     <!-- 主体区域 -->
     <div class="main">
       <router-view></router-view>
@@ -23,5 +23,13 @@ export default {
 };
 </script>
 
-<style >
+<style lang="scss" scoped>
+.side {
+  position: fixed;
+  top: 40px;
+  height: calc(100vh - 120px);
+}
+.main {
+  margin-left: 160px;
+}
 </style>

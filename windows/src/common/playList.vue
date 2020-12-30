@@ -47,9 +47,9 @@ export default {
   right: 0;
   bottom: 80px;
   width: 420px;
-  height: calc(100vh - 120px);
+  height: calc(100vh - 121px);
   background-color: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-left: 1px solid rgba(0, 0, 0, 0.05);
   overflow-y: auto;
   .play-list-title {
     height: 40px;
@@ -65,7 +65,7 @@ export default {
     display: flex;
     margin: 10px 5px 5px 5px;
     padding: 0 0 5px 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     .total {
       width: 180px;
     }

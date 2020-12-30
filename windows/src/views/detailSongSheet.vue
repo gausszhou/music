@@ -151,7 +151,6 @@ export default {
       this.$http.getPlayListDetail(params).then(res => {
         this.playlist = res.data.playlist;
         this.tracks = this.playlist.tracks;
-        console.log(this.tracks.length);
         this.songstotal = this.tracks.length;
       });
     },
@@ -163,7 +162,6 @@ export default {
         offset: (this.page - 1) * this.limit,
       };
       this.$http.getCommentPlayList(params).then(res => {
-        console.log(res.data.comments);
         this.comments = res.data.comments;
         this.total = res.data.total;
       });

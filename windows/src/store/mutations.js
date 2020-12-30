@@ -1,4 +1,7 @@
 export default {
+  setMessage(state, payload) {
+    state.message = payload;
+  },
   setSong(state, payload) {
     state.song = payload;
   },

@@ -13,6 +13,16 @@ export default {
   components: {
     topbarVue,
     indexVue
+  },
+  watch: {
+    '$store.state.message': {
+      handler(newV) {
+        this.$message({
+          message: newV,
+          type: 'error'
+        });
+      }
+    }
   }
 }
 </script>

@@ -1,4 +1,6 @@
 export default {
+  // 提示消息
+  message: '',
   // 歌曲对象
   song: {},
   // 播放列表

@@ -14,4 +14,6 @@ export default {
   // 查询参数
   query: '',
   menuVisible: false,
+  // 歌词
+  lyric: []
 };

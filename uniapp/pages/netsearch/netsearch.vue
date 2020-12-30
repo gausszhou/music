@@ -1,7 +1,7 @@
 <template>
   <div class="search-page">
     <div class="search-box">
-      <input v-model="query" placeholder="搜索歌曲、歌手、专辑" @keyup.enter="searchMusic()"></input>
+      <input v-model="query" placeholder="搜索歌曲、歌手、专辑" @keyup.enter="searchMusic()" />
     </div>
     <div class="hotSearch" v-show="beforeSearch">
       <span
@@ -12,18 +12,18 @@
       >{{ item.first }}</span>
     </div>
     <song-list-vue :itemList="musicList" :needSong="false"></song-list-vue>
-      <audio-vue v-if="$route.path.includes('netsearch')&&$store.state.isShow" class="vue-audio"></audio-vue>
+    <audio-vue v-if="$route.path.includes('netsearch')&&$store.state.isShow" class="vue-audio"></audio-vue>
   </div>
 </template>
 
 <script>
 import songListVue from "../../components/songList";
-import audioVue from "../../components/audio.vue"
+import audioVue from "../../components/audio.vue";
 export default {
   name: "search",
   components: {
     songListVue,
-        audioVue
+    audioVue
   },
   data() {
     return {
@@ -38,8 +38,8 @@ export default {
       if (newV == "") {
         this.beforeSearch = true;
         this.musicList = [];
-      }else{
-        this.searchMusic()
+      } else {
+        this.searchMusic();
       }
     },
   },
@@ -59,7 +59,7 @@ export default {
       // 获取歌曲列表
       let params = this.query;
       this.$http
-        .getNetSearchMusic({keywords:params})
+        .getNetSearchMusic({ keywords: params })
         .then((res) => {
           this.musicList = JSON.parse(res.data).result.songs.map(item => {
             return {
@@ -89,14 +89,14 @@ export default {
   padding: 0 2px;
   min-height: 100vh;
   width: 100%;
-  .search-box{
+  .search-box {
     margin: 10px;
-    input{
+    input {
       border-bottom: 1px solid #ccc;
     }
-    input:active{
+    input:active {
       border-bottom: 1px solid #000;
-      &~label{
+      & ~ label {
         font-size: 12px;
       }
     }

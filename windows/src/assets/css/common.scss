@@ -133,15 +133,10 @@ a {
 /*正常情况下滑块的样式*/
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.05);
-  border-radius: 10px;
-  box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1);
   display: none;
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
   display: none;
 }
 

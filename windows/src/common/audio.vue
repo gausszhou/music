@@ -28,6 +28,7 @@
             @click="toggleSong()"
           ></i>
           <i class="iconfont button-control ft_28 icon-next" @click="switchSong(1)"></i>
+          <i class="button-control ft_20 button-lyric" @click="toggleLyric">词</i>
         </div>
         <div class="progress display-flex">
           <span class="tiem">{{currentTime | stotime}}</span>
@@ -38,9 +39,8 @@
       <!-- 音量控制和播放列表 -->
       <div class="list-control display-flex">
         <div class="flex_1"></div>
-
-        <i class="iconfont ft_28 icon-volumn"></i>
-        <el-slider class="control-volumn" v-model="volumn" :show-tooltip="false" @change="changeVolumn(volumn)"></el-slider>
+        <i class="iconfont ft_28 icon-volume"></i>
+        <el-slider class="control-volume" v-model="volume" :show-tooltip="false" @change="changevolume(volume)"></el-slider>
         <i class="iconfont ft_28 button-menu icon-menu" @click="openDrawer()"></i>
       </div>
     </div>
@@ -50,20 +50,25 @@
       ref="audio"
       :src="song.audioUrl"
       autoplay
+      @mousedown.native="mousedown"
+      @mouseop.native="mouseup"
       @timeupdate="onAudioTimeUpdate"
       @loadeddata="loadeddata"
     ></audio>
     <!-- 播放列表组件 -->
     <playList v-if="$store.state.menuVisible"></playList>
+    <lyric v-if="lyricVisible" :time="currentTime"></lyric>
   </div>
 </template>
 
 <script>
 import playList from "./playList";
+import lyric from "./lyric";
 export default {
   name: "audioVue",
   components: {
-    playList
+    playList,
+    lyric
   },
   props: {},
   data() {
@@ -94,11 +99,13 @@ export default {
       currentTime: 0,
       totalTime: 0,
       amount: 0,
-      volumn: 50,
+      volume: 50,
       playSpeed: 1,
       loaded: false,
       orderList: [],
       current: -1,
+      lyricVisible: false,
+      isSlider: false
     };
   },
   computed: {
@@ -122,7 +129,7 @@ export default {
   },
   mounted() {
     // 设置初始音量
-    this.$refs.audio.volumn = this.volumn / 100;
+    this.$refs.audio.volume = this.volume / 100;
   },
   methods: {
     loadeddata() {
@@ -130,7 +137,6 @@ export default {
     },
     swtichMode() {
       this.mode = (this.mode + this.modeList.length + 1) % this.modeList.length;
-      console.log(this.mode);
     },
     switchSong(num) {
       let number = 0;
@@ -188,17 +194,31 @@ export default {
         }
       }
     },
+    toggleLyric() {
+      if (this.song.audioUrl && this.$store.state.lyric.length) {
+        this.lyricVisible = !this.lyricVisible;
+      }
+    },
+    mousedown() {
+      this.isSlider = true;
+    },
+    mouseup() {
+      setTimeout(() => {
+        this.isSlider = false;
+      }, 0);
+    },
     changeProgress(e) {
       this.$refs.audio.currentTime = e * this.totalTime / 100;
     },
-    changeVolumn(e) {
-      this.$refs.audio.volumn = e / 100;
+    changevolume(e) {
+      this.$refs.audio.volume = e / 100;
     },
     onAudioTimeUpdate() {
+      // 防止NaN
       if (this.loaded) {
         this.totalTime = this.$refs.audio.duration;
         this.currentTime = this.$refs.audio.currentTime;
-        this.amount = 100 * this.currentTime / this.totalTime;
+        if (!this.isSlider) this.amount = 100 * this.currentTime / this.totalTime;
         if (this.amount >= 100) {
           this.switchSong(1);
         }
@@ -220,7 +240,7 @@ export default {
   bottom: 0;
   height: 80px;
   width: 100%;
-  min-width: 960px;
+  min-width: 1024px;
   background-color: #f6f6f8;
   border-top: 1px solid #eee;
 }
@@ -298,6 +318,10 @@ export default {
     background-color: #ccc;
     border-radius: 40px;
   }
+  .button-lyric {
+    line-height: 28px;
+    cursor: pointer;
+  }
 }
 
 // 音量控制
@@ -305,7 +329,7 @@ export default {
   .button-menu {
     margin: 0 10px 0 0;
   }
-  .control-volumn {
+  .control-volume {
     margin: 0 15px;
     width: 100px;
   }

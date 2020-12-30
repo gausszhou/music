@@ -27,17 +27,36 @@
 .el-slider {
   .el-slider__runway {
     margin: 0;
-    height: 4px;
+    height: 3px;
     .el-slider__bar {
-      height: 4px;
+      height: 3px;
       border-radius: 4px;
     }
     .el-slider__button-wrapper {
       top: -16px;
     }
     .el-tooltip {
-      height: 8px;
-      width: 8px;
+      visibility: hidden;
+      height: 6px;
+      width: 6px;
+    }
+  }
+  &:hover {
+    .el-slider__runway {
+      margin: 0;
+      height: 4px;
+      .el-slider__bar {
+        height: 4px;
+        border-radius: 4px;
+      }
+      .el-slider__button-wrapper {
+        top: -16px;
+      }
+      .el-tooltip {
+        visibility: visible;
+        height: 6px;
+        width: 6px;
+      }
     }
   }
 }

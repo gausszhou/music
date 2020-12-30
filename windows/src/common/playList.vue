@@ -50,7 +50,7 @@ export default {
   height: calc(100vh - 120px);
   background-color: #fff;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
-  border-left: 1px solid rgba(0, 0, 0, 0.05);
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
   overflow-y: auto;
   .play-list-title {
     height: 40px;
@@ -58,7 +58,7 @@ export default {
     width: 210px;
     margin: 20px auto;
     text-align: center;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.5);
     border-radius: 40px;
     font-size: 20px;
   }
@@ -66,7 +66,7 @@ export default {
     display: flex;
     margin: 10px 5px 5px 5px;
     padding: 0 0 5px 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
     .total {
       width: 180px;
     }
@@ -121,5 +121,9 @@ export default {
       text-decoration: none;
     }
   }
+}
+.play-list-box {
+  overflow-y: auto;
+  height: calc(100vh - 230px);
 }
 </style>

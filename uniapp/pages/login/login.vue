@@ -3,11 +3,11 @@
     <form class="login-form">
       <div class="input-box">
         <label>账号</label>
-        <input type="text" v-model="form.account"></input>
+        <input type="text" v-model="form.phone" />
       </div>
-     <div class="input-box">
+      <div class="input-box">
         <label>密码</label>
-        <input type="password" v-model="form.password" @enter="login"></input>
+        <input type="password" v-model="form.password" @enter="login" />
       </div>
       <div class="submit-box">
         <button class="submit-button" @click="login">Submit</button>
@@ -21,22 +21,18 @@ export default {
   data() {
     return {
       form: {
-        account: '13177802997',
-        password: '102446105603@163'
+        phone: '',
+        password: ''
       }
     };
   },
   methods: {
-    login() { 
-      let params = {
-        phone:this.form.account,
-        password:this.form.password,
-      }
+    login() {
+      let params = this.form;
       this.$http.login(params).then(() => {
-        console.log(111)
-          uni.switchTab({
-            url:'pages/nethome/nethome'
-          })
+        uni.switchTab({
+          url: 'pages/nethome/nethome'
+        });
       });
     },
   }
@@ -54,9 +50,9 @@ export default {
   .login-form {
     min-width: 200px;
   }
-  .input-box{
+  .input-box {
     height: 50px;
-    input{
+    input {
       border-bottom: 1px solid #ccc;
     }
   }
@@ -66,6 +62,5 @@ export default {
     line-height: 40px;
     background-color: #ccc;
   }
-
 }
 </style>

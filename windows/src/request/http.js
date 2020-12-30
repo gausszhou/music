@@ -39,6 +39,8 @@ const http = {
   getMVUrl: (params) => axios.get(baseUrl + '/mv/url' + serialize(params)),
   // 获取MV详情 /mv/detail mvid
   getMVDetail: (params) => axios.get(baseUrl + '/mv/detail' + serialize(params)),
+  // 获取歌词 /lyric id
+  getLyric: (params) => axios.get(baseUrl + '/lyric' + serialize(params)),
 
   /* 顶部搜索 */
   // 获取搜索列表 /search

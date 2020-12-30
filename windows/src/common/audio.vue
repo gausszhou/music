@@ -1,5 +1,5 @@
 <template>
-  <div class="audio-box">
+  <div class="audio-box" @mousedown.native="mousedown" @mouseop.native="mouseup">
     <div class="audio-bar">
       <!-- 左边的歌曲信息 -->
       <div class="song-info">
@@ -32,7 +32,7 @@
         </div>
         <div class="progress display-flex">
           <span class="tiem">{{currentTime | stotime}}</span>
-          <el-slider class="control-progress" v-model="amount" :show-tooltip="false" @change="changeProgress(amount)"></el-slider>
+          <el-slider class="control-progress" v-model="amount" :show-tooltip="false" @change="changeProgress"></el-slider>
           <span class="time">{{totalTime | stotime}}</span>
         </div>
       </div>
@@ -50,8 +50,6 @@
       ref="audio"
       :src="song.audioUrl"
       autoplay
-      @mousedown.native="mousedown"
-      @mouseop.native="mouseup"
       @timeupdate="onAudioTimeUpdate"
       @loadeddata="loadeddata"
     ></audio>
@@ -205,10 +203,12 @@ export default {
     mouseup() {
       setTimeout(() => {
         this.isSlider = false;
-      }, 0);
+      }, 100);
     },
     changeProgress(e) {
+      this.isSlider = true;
       this.$refs.audio.currentTime = e * this.totalTime / 100;
+      this.amount = e;
     },
     changevolume(e) {
       this.$refs.audio.volume = e / 100;

@@ -47,8 +47,9 @@ export default {
   right: 0;
   bottom: 80px;
   width: 420px;
-  height: calc(100vh - 121px);
+  height: calc(100vh - 120px);
   background-color: #fff;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
   border-left: 1px solid rgba(0, 0, 0, 0.05);
   overflow-y: auto;
   .play-list-title {

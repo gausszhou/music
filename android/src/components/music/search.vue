@@ -43,7 +43,7 @@ export default {
     this.beforeSearch = true;
     // 获取搜索候选
     this.$http
-      .getNetSearchHot()
+      .getSearchHot()
       .then((res) => {
         this.hotSearchList = res.data.result.hots;
       })
@@ -55,7 +55,7 @@ export default {
       // 获取歌曲列表
       let params = this.query;
       this.$http
-        .getNetSearchMusic({ keywords: params })
+        .getSearch({ keywords: params })
         .then((res) => {
           this.musicList = res.data.result.songs.map(item => {
             return {

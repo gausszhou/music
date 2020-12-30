@@ -36,17 +36,17 @@ let localUrl = "./mock";
 export default {
   // login
   login: (params) => axios.get(baseUrl + '/login/cellphone' + serialize(params)),
-  // nethome
+  // home
   getPersonalized: () => axios.get(baseUrl + "/personalized"),
   getNewSong: () => axios.get(baseUrl + "/personalized/newsong"),
-  // netsearch
-  getNetSearchHot: () => axios.get(baseUrl + "/search/hot"),
-  getNetSearchMusic: (params) => axios.get(baseUrl + "/search" + serialize(params)),
-  getNetAudioUrl: (params) => axios.get(baseUrl + "/song/url" + serialize(params)),
-  getNetMvUrl: (params) => axios.get(baseUrl + "/mv/url" + serialize(params)),
-  getNetDetail: (params) => axios.get(baseUrl + "/song/detail" + serialize(params)),
-  // youdao 
-  getWordList: () => axios.get(localUrl + "/word.json"),
+  // search
+  getSearchHot: () => axios.get(baseUrl + "/search/hot"),
+  getSearch: (params) => axios.get(baseUrl + "/search" + serialize(params)),
+  // 
+  getSongUrl: (params) => axios.get(baseUrl + "/song/url" + serialize(params)),
+  getMvUrl: (params) => axios.get(baseUrl + "/mv/url" + serialize(params)),
+  getSongDetail: (params) => axios.get(baseUrl + "/song/detail" + serialize(params)),
+
 
   // 歌单详情 /playlist/detail id
   getPlayListDetail: (params) => axios.get(baseUrl + '/playlist/detail' + serialize(params)),
@@ -56,5 +56,8 @@ export default {
   getCommentPlayList: (params) => axios.get(baseUrl + '/comment/playlist' + serialize(params)),
   // 获取热门评论  /comment/hot
   getCommentHot: (params) => axios.get(baseUrl + '/comment/hot' + serialize(params)),
+
+  // youdao 
+  getWordList: () => axios.get(localUrl + "/word.json"),
 };
 

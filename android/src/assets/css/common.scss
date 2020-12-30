@@ -136,6 +136,48 @@ table {
 	display: none;
 }
 
+::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+	display: none;
+}
+
+.overEllipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	word-break: normal;
+}
+
+// flex
+.display-flex {
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+}
+
+.display-flex_wrap {
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.flex_1 {
+	flex: 1 1 auto;
+}
+
+.text-left {
+	text-align: left;
+}
+.text-center {
+	text-align: center;
+}
+
+.text-right {
+	text-align: right;
+}
+
 // margin && padding
 
 @for $i from 1 to 20 {
@@ -166,43 +208,8 @@ table {
 }
 
 // font-size
-@for $i from 1 to 30 {
+@for $i from 11 to 30 {
 	.ft_#{$i} {
 		font-size: $i + px !important;
 	}
-}
-
-// flex
-.display-flex {
-	display: flex;
-	align-items: center;
-	flex-direction: row;
-}
-
-.flex_1 {
-	flex: 1 1 auto;
-}
-
-::-webkit-scrollbar {
-	width: 10px;
-	height: 10px;
-	display: none;
-}
-
-.overEllipsis {
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	word-break: normal;
-}
-
-.text-left {
-	text-align: left;
-}
-.text-center {
-	text-align: center;
-}
-
-.text-right {
-	text-align: right;
 }

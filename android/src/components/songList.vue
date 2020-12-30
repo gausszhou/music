@@ -51,16 +51,16 @@ export default {
       let mvId = item.mvid;
       let author = item.author;
       this.$store.commit('setIsPlaying', false);
-      await this.$http.getNetAudioUrl({ id: musicId }).then(res => {
+      await this.$http.getSongUrl({ id: musicId }).then(res => {
         if (res.data.data[0].url) audioUrl = res.data.data[0].url;
       });
       if (mvId) {
-        await this.$http.getNetMvUrl({ id: mvId }).then(res => {
+        await this.$http.getMvUrl({ id: mvId }).then(res => {
           mvUrl = res.data.data.url;
         });
       }
       if (!picUrl) {
-        await this.$http.getNetDetail({ ids: musicId }).then(res => {
+        await this.$http.getSongDetail({ ids: musicId }).then(res => {
           picUrl = res.data.songs[0].al.picUrl;
         });
       }

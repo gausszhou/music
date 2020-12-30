@@ -1,0 +1,32 @@
+.md-toolbar {
+	min-height: 53px;
+	height: 53px;
+	background-color: #fff !important;
+	box-shadow: 0 2px 8px rgba($color: #000000, $alpha: 0.1);
+	border-bottom: 1px solid rgba($color: #000000, $alpha: 0.1);
+	.md-button {
+		height: 52px !important;
+	}
+}
+
+.md-toolbar-row {
+	height: 52px;
+}
+
+.md-bottom-bar.md-type-fixed {
+	.md-bottom-bar-item {
+		min-width: 50px !important;
+	}
+}
+
+.md-list-item-content > .md-checkbox:first-child,
+.md-list-item-content > .md-radio:first-child {
+	display: none;
+}
+
+.md-tabs.md-theme-default .md-tabs-navigation .md-button.md-active {
+	color: rgb(233, 46, 25);
+}
+.md-tabs.md-theme-default .md-tabs-indicator {
+	background-color: rgb(233, 46, 25);
+}

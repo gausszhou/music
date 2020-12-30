@@ -1,0 +1,71 @@
+{
+  "pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+    {
+      "path": "pages/login/login",
+      "style": {
+        "navigationBarTitleText": "登录"
+      }
+    }, 
+    {
+      "path": "pages/nethome/nethome",
+      "style": {
+        "titleNView": false
+      }
+    },
+    {
+      "path": "pages/netsearch/netsearch",
+      "style": {
+        "titleNView": false
+      }
+    },
+    {
+      "path": "pages/youdao/youdao",
+      "style": {
+        "titleNView": false
+      }
+    },
+    {
+      "path": "pages/blog/blog",
+      "style": {
+        "titleNView": false
+      }
+    }
+  ],
+  "tabBar": {
+    "color": "#bfbfbf", // 默认颜色
+    "selectedColor": "#333", // 选中颜色
+    "backgroundColor": "#ffffff", // 背景颜色
+    "list": [ // 最少两个，最多五个
+      {
+        "pagePath": "pages/nethome/nethome",
+        "text": "网易云",
+        "iconPath": "",
+        "selectedIconPath": ""
+      },
+      {
+        "pagePath": "pages/netsearch/netsearch",
+        "text": "搜索",
+        "iconPath": "",
+        "selectedIconPath": ""
+      },
+      {
+        "pagePath": "pages/youdao/youdao",
+        "text": "有道",
+        "iconPath": "",
+        "selectedIconPath": ""
+      },
+      {
+        "pagePath": "pages/blog/blog",
+        "text": "在线博客",
+        "iconPath": "",
+        "selectedIconPath": ""
+      }
+    ]
+  },
+  "globalStyle": {
+    "navigationBarTextStyle": "black", // white or blacek
+    "navigationBarTitleText": "",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  }
+}

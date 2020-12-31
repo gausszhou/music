@@ -29,8 +29,7 @@ export default {
   width: 100vw;
   height: calc(100vh - 120px);
   bottom: 80px;
-  right: 0;
-  background-color: #eee;
+  background-color: #f7f7f7;
 }
 
 // 唱片机
@@ -39,7 +38,7 @@ export default {
   height: 435px;
   position: absolute;
   left: 200px;
-  top: 0px;
+  top: 100px;
 }
 
 .player_con2 {

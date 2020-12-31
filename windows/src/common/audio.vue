@@ -3,7 +3,7 @@
     <div class="audio-bar" @mouseup="mouseup">
       <!-- 左边的歌曲信息 -->
       <div class="song-info">
-        <div class="img-box" @click="toggleSongDrawer()" :class="{show:song.picUrl}">
+        <div class="img-box" @click="toggleSongDrawer()" :class="{show:song.picUrl,open:songDrawerVisible}">
           <i class="iconfont arrow arrow-left icon-arrow-left-bottom"></i>
           <i class="iconfont arrow arrow-right icon-arrow-right-top"></i>
           <img class="img" :class="{ 'running':isPlay&&(!songDrawerVisible) }" :src="song.picUrl" />
@@ -59,8 +59,10 @@
     <transition-group name="fade">
       <playList key="playList" v-if="$store.state.menuVisible"></playList>
       <lyric key="lyric" v-if="lyricVisible" :time="currentTime"></lyric>
-      <songDrawer key="songDrawer" v-if="songDrawerVisible" @change="closeSongDrawer()"></songDrawer>
     </transition-group>
+    <transition name="drawer">
+      <songDrawer key="songDrawer" v-if="songDrawerVisible" @change="closeSongDrawer()"></songDrawer>
+    </transition>
   </div>
 </template>
 
@@ -279,18 +281,19 @@ export default {
     cursor: pointer;
     visibility: hidden;
     .arrow {
+      display: block;
       z-index: 11;
       position: absolute;
       font-size: 20px;
       color: rgba(0, 0, 0, 0);
     }
     .arrow-left {
-      left: 5px;
-      bottom: 5px;
+      left: 10px;
+      bottom: 10px;
     }
     .arrow-right {
-      right: 5px;
-      top: 5px;
+      right: 10px;
+      top: 10px;
     }
     .img {
       display: block;
@@ -312,8 +315,13 @@ export default {
       }
     }
     &:hover {
+      &.open {
+        .arrow {
+          transform: rotate(180deg);
+        }
+      }
       .arrow {
-        color: rgba(0, 0, 0, 0.7);
+        color: rgba(255, 255, 255, 0.7);
       }
       .img {
         filter: blur(2px);
@@ -378,5 +386,17 @@ export default {
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
+}
+
+.drawer-enter-active,
+.drawer-leave-active {
+  transition: transform 0.5s; // 不能用all
+  transform-origin: left bottom;
+  transform: scaleX(1) scaleY(1);
+}
+.drawer-enter, .drawer-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  transition: transform 0.5s;
+  transform-origin: left bottom;
+  transform: scaleX(0) scaleY(0);
 }
 </style>

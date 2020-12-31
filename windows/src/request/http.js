@@ -5,7 +5,6 @@ axios.defaults.setTimeout == 5000;
 // Post请求，默认类型
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
-
 // Get请求参数拼接
 function serialize(params) {
   if (!params || Object.prototype.toString.call(params) != "[object Object]") {

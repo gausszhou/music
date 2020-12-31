@@ -54,7 +54,7 @@
 
 <script>
 export default {
-  name: 'recommend',
+  name: 'songSheet',
   data() {
     return {
       // 标签列表

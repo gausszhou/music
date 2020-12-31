@@ -1,9 +1,10 @@
 <template>
-  <div></div>
+  <div>detailSinger</div>
 </template>
 
 <script>
 export default {
+  name: 'singer'
 
 }
 </script>

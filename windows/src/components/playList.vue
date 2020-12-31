@@ -31,6 +31,7 @@
 
 <script>
 export default {
+  name: 'playList',
   methods: {
     playMusic(item, index) {
       this.$store.dispatch('playMusic', item);

@@ -58,7 +58,7 @@
 <script>
 
 export default {
-  name: 'singers',
+  name: 'singer',
   data() {
     return {
       areaList: [

@@ -11,10 +11,10 @@ import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 Vue.use(ElementUI);
 // 引入全局样式
-import "./assets/css/common.scss";
-import "./assets/css/customize.scss";
-import "./assets/css/element.scss";
-import "./assets/css/iconfont.scss";
+import "@/styles/common.scss";
+import "@/styles/customize.scss";
+import "@/styles/element.scss";
+import "@/styles/iconfont.scss";
 // 引入http接口
 import http from './request/http';
 Vue.prototype.$http = http;

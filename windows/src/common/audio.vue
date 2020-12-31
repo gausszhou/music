@@ -1,10 +1,12 @@
 <template>
-  <div class="audio-box" @mousedown.native="mousedown" @mouseop.native="mouseup">
-    <div class="audio-bar">
+  <div class="audio-box">
+    <div class="audio-bar" @mouseup="mouseup">
       <!-- 左边的歌曲信息 -->
       <div class="song-info">
-        <div class="img-box">
-          <img class="img" :class="isPlay ? 'running':'paused'" :src="song.picUrl" v-if="song.picUrl" />
+        <div class="img-box" @click="toggleSongDrawer()" :class="{show:song.picUrl}">
+          <i class="iconfont arrow arrow-left icon-arrow-left-bottom"></i>
+          <i class="iconfont arrow arrow-right icon-arrow-right-top"></i>
+          <img class="img" :class="{ 'running':isPlay&&(!songDrawerVisible) }" :src="song.picUrl" />
         </div>
         <div class="name-box">
           <div class="overEllipsis song-name ft_16">{{song.name}}</div>
@@ -54,19 +56,24 @@
       @loadeddata="loadeddata"
     ></audio>
     <!-- 播放列表组件 -->
-    <playList v-if="$store.state.menuVisible"></playList>
-    <lyric v-if="lyricVisible" :time="currentTime"></lyric>
+    <transition-group name="fade">
+      <playList key="playList" v-if="$store.state.menuVisible"></playList>
+      <lyric key="lyric" v-if="lyricVisible" :time="currentTime"></lyric>
+      <songDrawer key="songDrawer" v-if="songDrawerVisible" @change="closeSongDrawer()"></songDrawer>
+    </transition-group>
   </div>
 </template>
 
 <script>
-import playList from "./playList";
-import lyric from "./lyric";
+import playList from "@/components/playList.vue";
+import lyric from "@/components/lyric.vue";
+import songDrawer from "@/components/songDrawer.vue";
 export default {
   name: "audioVue",
   components: {
     playList,
-    lyric
+    lyric,
+    songDrawer
   },
   props: {},
   data() {
@@ -103,7 +110,8 @@ export default {
       orderList: [],
       current: -1,
       lyricVisible: false,
-      isSlider: false
+      isSlider: false,
+      songDrawerVisible: false
     };
   },
   computed: {
@@ -197,9 +205,6 @@ export default {
         this.lyricVisible = !this.lyricVisible;
       }
     },
-    mousedown() {
-      this.isSlider = true;
-    },
     mouseup() {
       setTimeout(() => {
         this.isSlider = false;
@@ -227,7 +232,15 @@ export default {
     // 打开播放列表
     openDrawer() {
       this.$store.commit('setMenuVisible', !this.$store.state.menuVisible);
-    }
+    },
+    // 打开歌曲详情
+    toggleSongDrawer() {
+      this.songDrawerVisible = !this.songDrawerVisible;
+    },
+    closeSongDrawer() {
+      this.songDrawerVisible = false;
+    },
+
   },
 };
 </script>
@@ -262,20 +275,33 @@ export default {
 .song-info {
   .img-box {
     margin-left: 20px;
+    position: relative;
+    cursor: pointer;
+    visibility: hidden;
+    .arrow {
+      z-index: 11;
+      position: absolute;
+      font-size: 20px;
+      color: rgba(0, 0, 0, 0);
+    }
+    .arrow-left {
+      left: 5px;
+      bottom: 5px;
+    }
+    .arrow-right {
+      right: 5px;
+      top: 5px;
+    }
     .img {
       display: block;
       height: 70px;
       width: 70px;
-      border-radius: 50%;
+      border-radius: 10px;
       border: 1px solid #ccc;
-      animation: rotateImg 5s linear infinite running;
-      animation-play-state: paused;
     }
     .img.running {
-      animation-play-state: running;
-    }
-    .img.paused {
-      animation-play-state: paused;
+      border-radius: 50%;
+      animation: rotateImg 5s linear infinite running;
     }
     @keyframes rotateImg {
       from {
@@ -284,6 +310,17 @@ export default {
       to {
         transform: rotate(360deg);
       }
+    }
+    &:hover {
+      .arrow {
+        color: rgba(0, 0, 0, 0.7);
+      }
+      .img {
+        filter: blur(2px);
+      }
+    }
+    &.show {
+      visibility: visible;
     }
   }
   .name-box {
@@ -333,5 +370,13 @@ export default {
     margin: 0 15px;
     width: 100px;
   }
+}
+// 过渡
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 </style>

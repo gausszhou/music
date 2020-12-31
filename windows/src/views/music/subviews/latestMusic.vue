@@ -59,7 +59,7 @@
 <script>
 
 export default {
-  name: 'songs',
+  name: 'latestMusic',
   data() {
     return {
       // 分类标签列表

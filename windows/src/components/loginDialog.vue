@@ -17,6 +17,7 @@
 
 <script>
 export default {
+  name: 'loginDialog',
   data() {
     return {
       visible: true,

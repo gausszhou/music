@@ -24,6 +24,7 @@
 
 <script>
 export default {
+  name: 'rankList',
   data() {
     return {
       list: [],

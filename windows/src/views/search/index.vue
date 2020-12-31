@@ -64,7 +64,7 @@
 
 <script>
 export default {
-  name: 'result',
+  name: 'search',
   data() {
     return {
       activeIndex: 'songs',

@@ -12,73 +12,97 @@ const routes = [
     redirect: { name: 'recommend' }
   },
   {
-    name: 'discoveryMusic',
-    path: '/discoveryMusic',
-    component: () => import('../views/discoveryMusic.vue'),
+    name: 'music',
+    path: '/music',
+    component: () => import('@/views/music/index.vue'),
     children: [
       {
         name: 'recommend',
         path: 'recommend',
-        component: () => import('../components/recommend.vue'),
+        component: () => import('@/views/music/subviews/recommend.vue'),
+        meta: { title: '推荐' }
       },
       {
         name: 'songSheet',
         path: 'songSheet',
-        component: () => import('../components/songSheet.vue'),
+        component: () => import('@/views/music/subviews/songSheet.vue'),
+        meta: { title: '歌单' }
       },
       {
         name: 'anchorStation',
         path: 'anchorStation',
-        component: () => import('../components/anchorStation.vue'),
+        component: () => import('@/views/music/subviews/anchorStation.vue'),
+        meta: { title: '电台' }
       },
       {
         name: 'rankList',
         path: 'rankList',
-        component: () => import('../components/rankList.vue'),
+        component: () => import('@/views/music/subviews/rankList.vue'),
+        meta: { title: '排行榜' }
       },
       {
         name: 'singer',
         path: 'singer',
-        component: () => import('../components/singer.vue'),
+        component: () => import('@/views/music/subviews/singer.vue'),
+        meta: { title: '歌手' }
       },
       {
         name: 'latestMusic',
         path: 'latestMusic',
-        component: () => import('../components/latestMusic.vue'),
+        component: () => import('@/views/music/subviews/latestMusic.vue'),
+        meta: { title: '最新音乐' }
       },
     ]
   },
   {
-    name: 'discoveryVideo',
-    path: '/discoveryVideo',
-    component: () => import('../views/discoveryVideo.vue'),
+    name: 'video',
+    path: '/video',
+    component: () => import('@/views/video/index.vue'),
     children: [
       {
         name: 'latestMV',
         path: 'latestMV',
-        component: () => import('../components/latestMV.vue'),
+        component: () => import('@/views/video/subviews/latestMV.vue'),
+        meta: { title: '最新MV' }
       },
       {
         name: 'allMV',
         path: 'allMV',
-        component: () => import('../components/allMV.vue'),
+        component: () => import('@/views/video/subviews/allMV.vue'),
+        meta: { title: '全部MV' }
       }
     ]
   },
   {
-    name: 'searchResult',
-    path: '/searchResult',
-    component: () => import('../views/searchResult.vue'),
+    name: 'search',
+    path: '/search',
+    component: () => import('@/views/search/index.vue'),
+    meta: { title: '搜索结果|' }
   },
   {
-    name: 'detailMV',
-    path: '/detailMV',
-    component: () => import('../views/detailMV.vue'),
-  },
-  {
-    name: 'detailSongSheet',
-    path: '/detailSongSheet',
-    component: () => import('../views/detailSongSheet.vue'),
+    name: 'detail',
+    path: '/detail',
+    component: () => import('@/views/detail/index.vue'),
+    children: [
+      {
+        name: 'detailMV',
+        path: 'detailMV',
+        component: () => import('@/views/detail/subviews/detailMV.vue'),
+        meta: { title: 'MV详情' }
+      },
+      {
+        name: 'detailSongSheet',
+        path: 'detailSongSheet',
+        component: () => import('@/views/detail/subviews/detailSongSheet.vue'),
+        meta: { title: '歌单详情' }
+      },
+      {
+        name: 'detailSinger',
+        path: 'detailSinger',
+        component: () => import('@/views/detail/subviews/detailSinger.vue'),
+        meta: { title: '歌手详情' }
+      },
+    ]
   },
 ];
 
@@ -95,6 +119,22 @@ const router = new VueRouter({
   // vue-router里提供了一个base的属性，代表应用的基目录
   base: getAbsolutePath(),
   routes
+});
+
+//导入
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
+// 关闭加载小圈圈的显示
+NProgress.configure({ showSpinner: false });
+
+router.beforeEach((to, from, next) => {
+  NProgress.start();
+  next();
+});
+
+router.afterEach(() => {
+  NProgress.done();
+
 });
 
 // 导出路由

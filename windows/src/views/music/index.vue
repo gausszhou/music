@@ -41,7 +41,7 @@
 <script>
 
 export default {
-  name: 'discovery',
+  name: 'music',
   components: {
   },
   data() {

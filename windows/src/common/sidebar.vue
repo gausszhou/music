@@ -2,13 +2,13 @@
   <div class="nav">
     <ul>
       <li>
-        <router-link :to="{name:'recommend'}" :class="{'router-link-active':$route.path.includes('discoveryMusic')}">
+        <router-link :to="{name:'recommend'}" :class="{'router-link-active':$route.path.includes('music')}">
           <span class="iconfont"></span>
           发现音乐
         </router-link>
       </li>
       <li>
-        <router-link :to="{name:'latestMV'}" :class="{'router-link-active':$route.path.includes('discoveryVideo')}">
+        <router-link :to="{name:'latestMV'}" :class="{'router-link-active':$route.path.includes('video')}">
           <span class="iconfont"></span>
           发现视频
         </router-link>

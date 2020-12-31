@@ -45,7 +45,7 @@
 <script>
 
 export default {
-  name: 'mvs',
+  name: 'latestMV',
   data() {
     return {
       areaList: ['', '内地', '港台', '欧美', '日本', '韩国'],

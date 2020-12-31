@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import loginDialog from "@/components/dialogModules/loginDialog.vue";
+import loginDialog from "@/components/loginDialog.vue";
 export default {
   name: 'topbarVue',
   components: {
@@ -53,7 +53,7 @@ export default {
       if (this.query) {
         this.$store.commit('setQuery', this.query);
         this.$router.replace({
-          name: 'searchResult',
+          name: 'search',
           query: {
             keywords: this.query
           }

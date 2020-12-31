@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'songLyric',
+  name: 'lyric',
   props: {
     time: {
       type: [Number, String],

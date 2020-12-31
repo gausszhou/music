@@ -28,7 +28,7 @@
 <script>
 
 export default {
-  name: 'discovery',
+  name: 'anchorStation',
   data() {
     return {
       // 轮播图

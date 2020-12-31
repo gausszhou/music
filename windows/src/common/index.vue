@@ -4,6 +4,7 @@
     <sidebar-vue class="side"></sidebar-vue>
     <!-- 主体区域 -->
     <div class="main">
+      <!-- 一级路由入口 -->
       <router-view></router-view>
     </div>
     <!-- 播放标签 -->
@@ -12,8 +13,8 @@
 </template>
 
 <script>
-import audioVue from "./audio";
-import sidebarVue from "./sidebar";
+import audioVue from "@/common/audio";
+import sidebarVue from "@/common/sidebar";
 export default {
   name: 'index',
   components: {

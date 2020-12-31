@@ -80,7 +80,7 @@
 
 
 export default {
-  name: 'discovery',
+  name: 'recommend',
   data() {
     return {
       // 轮播图

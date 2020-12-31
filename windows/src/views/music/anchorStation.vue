@@ -49,7 +49,6 @@ export default {
   methods: {
     getDJBanner() {
       this.$http.getDJBanner().then(res => {
-        console.log(res.data.data);
         this.DJBanners = res.data.data;
       });
     },
@@ -58,7 +57,6 @@ export default {
         limit: 6
       };
       this.$http.getDJRecommend(params).then(res => {
-        console.log(res);
         this.list = res.data.data.slice(0, 5);
       });
     },

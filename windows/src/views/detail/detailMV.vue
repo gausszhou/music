@@ -141,7 +141,6 @@ export default {
         limit: this.limit
       };
       this.$http.getCommentMV(params).then(res => {
-        console.log(res.data);
         this.comments = res.data.comments;
         this.total = res.data.total;
       });
@@ -151,7 +150,8 @@ export default {
       this.getData();
     },
     handleCurrentChange(val) {
-      console.log(`当前页: ${val}`);
+      this.page = val;
+
     }
   }
 };

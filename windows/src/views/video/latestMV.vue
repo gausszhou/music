@@ -75,7 +75,6 @@ export default {
         // offset: (this.page - 1) * this.limit
       };
       this.$http.getMVFirst(params).then(res => {
-        console.log(res.data);
         this.list = res.data.data;
         if (res.data.count) {
           this.total = res.data.count;

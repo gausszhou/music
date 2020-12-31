@@ -19,37 +19,37 @@ const routes = [
       {
         name: 'recommend',
         path: 'recommend',
-        component: () => import('@/views/music/subviews/recommend.vue'),
+        component: () => import('@/views/music/recommend.vue'),
         meta: { title: '推荐' }
       },
       {
         name: 'songSheet',
         path: 'songSheet',
-        component: () => import('@/views/music/subviews/songSheet.vue'),
+        component: () => import('@/views/music/songSheet.vue'),
         meta: { title: '歌单' }
       },
       {
         name: 'anchorStation',
         path: 'anchorStation',
-        component: () => import('@/views/music/subviews/anchorStation.vue'),
+        component: () => import('@/views/music/anchorStation.vue'),
         meta: { title: '电台' }
       },
       {
         name: 'rankList',
         path: 'rankList',
-        component: () => import('@/views/music/subviews/rankList.vue'),
+        component: () => import('@/views/music/rankList.vue'),
         meta: { title: '排行榜' }
       },
       {
         name: 'singer',
         path: 'singer',
-        component: () => import('@/views/music/subviews/singer.vue'),
+        component: () => import('@/views/music/singer.vue'),
         meta: { title: '歌手' }
       },
       {
         name: 'latestMusic',
         path: 'latestMusic',
-        component: () => import('@/views/music/subviews/latestMusic.vue'),
+        component: () => import('@/views/music/latestMusic.vue'),
         meta: { title: '最新音乐' }
       },
     ]
@@ -62,13 +62,13 @@ const routes = [
       {
         name: 'latestMV',
         path: 'latestMV',
-        component: () => import('@/views/video/subviews/latestMV.vue'),
+        component: () => import('@/views/video/latestMV.vue'),
         meta: { title: '最新MV' }
       },
       {
         name: 'allMV',
         path: 'allMV',
-        component: () => import('@/views/video/subviews/allMV.vue'),
+        component: () => import('@/views/video/allMV.vue'),
         meta: { title: '全部MV' }
       }
     ]
@@ -87,19 +87,19 @@ const routes = [
       {
         name: 'detailMV',
         path: 'detailMV',
-        component: () => import('@/views/detail/subviews/detailMV.vue'),
+        component: () => import('@/views/detail/detailMV.vue'),
         meta: { title: 'MV详情' }
       },
       {
         name: 'detailSongSheet',
         path: 'detailSongSheet',
-        component: () => import('@/views/detail/subviews/detailSongSheet.vue'),
+        component: () => import('@/views/detail/detailSongSheet.vue'),
         meta: { title: '歌单详情' }
       },
       {
         name: 'detailSinger',
         path: 'detailSinger',
-        component: () => import('@/views/detail/subviews/detailSinger.vue'),
+        component: () => import('@/views/detail/detailSinger.vue'),
         meta: { title: '歌手详情' }
       },
     ]

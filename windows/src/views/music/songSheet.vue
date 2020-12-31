@@ -102,7 +102,6 @@ export default {
       };
       this.$http.getTopPlayList(params).then(res => {
         this.total = res.data.total;
-        console.log(this.total);
         this.list = res.data.playlists;
       });
     },

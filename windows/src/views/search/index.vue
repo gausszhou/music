@@ -116,17 +116,14 @@ export default {
         this.$http.getSearch(params).then(res => {
           switch (type) {
             case 1:
-              console.log('songs');
               this.songList = res.data.result.songs;
               this.count = res.data.result.songCount;
               break;
             case 1000:
-              console.log('lists');
               this.playList = res.data.result.playlists;
               this.count = res.data.result.playlistCount;
               break;
             case 1004:
-              console.log('mvs');
               this.mvList = res.data.result.mvs;
               this.count = res.data.result.mvCount;
               break;

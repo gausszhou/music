@@ -23,7 +23,7 @@
 <script>
 
 export default {
-  name: 'video',
+  name: 'videoVue',
   components: {
   },
   data() {

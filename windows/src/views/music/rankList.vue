@@ -37,7 +37,6 @@ export default {
     getTopList() {
       this.$http.getTopList().then(res => {
         this.list = res.data.list;
-        console.log(this.list[0]);
       });
     },
     toSongSheetDetail(item) {

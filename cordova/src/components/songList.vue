@@ -31,7 +31,6 @@ export default {
         return [{ id: 1, name: '', song: { artists: [{ name: '' }], album: { name: '' } } }];
       }
     },
-
   },
   data() {
     return {
@@ -40,46 +39,9 @@ export default {
   computed: {
   },
   methods: {
-    async playMusic(item) {
-      console.log(item);
-      let name = item.name;
-      let albumname = item.albumname;
-      let picUrl = item.picUrl || '';
-      let mvUrl = '';
-      let audioUrl = '';
-      let musicId = item.id;
-      let mvId = item.mvid;
-      let author = item.author;
-      this.$store.commit('setIsPlaying', false);
-      await this.$http.getSongUrl({ id: musicId }).then(res => {
-        if (res.data.data[0].url) audioUrl = res.data.data[0].url;
-      });
-      if (mvId) {
-        await this.$http.getMvUrl({ id: mvId }).then(res => {
-          mvUrl = res.data.data.url;
-        });
-      }
-      if (!picUrl) {
-        await this.$http.getSongDetail({ ids: musicId }).then(res => {
-          picUrl = res.data.songs[0].al.picUrl;
-        });
-      }
-      let song = { name, albumname, picUrl, mvUrl, audioUrl, author, musicId, mvId };
-      this.$store.commit('setSong', song);
-      let list = JSON.parse(JSON.stringify(this.$store.state.playList));
-      let flag = true;
-      list.forEach(item => {
-        if (item.musicId == song.musicId) {
-          flag = false;
-        }
-      });
-      if (flag) {
-        list.push(song);
-      }
-      this.$store.commit('setPlayList', list);
-      this.$store.commit('setIsPlaying', true);
-      this.$store.commit('setIsShow', true);
-    },
+    playMusic(item) {
+      this.$store.dispatch('getMusic', item);
+    }
   },
 };
 </script>
@@ -88,13 +50,13 @@ export default {
 .song-list {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 108px;
+  margin-bottom: 3.375rem;
 }
 
 .song-item {
-  height: 40px;
+  width: 100%;
   padding: 0;
-  margin: 8px;
+  margin: 0.25rem;
   overflow: hidden;
   display: flex;
   font-family: Helvetica, sans-serif, STHeiTi;
@@ -102,17 +64,17 @@ export default {
   .song-info {
     flex: 1 1 auto;
     .name {
-      font-size: 16px;
+      font-size: 0.5rem;
     }
     .album {
-      font-size: 12px;
+      font-size: 0.375rem;
       color: rgba($color: #000000, $alpha: 0.6);
     }
     .mv-tag {
       position: relative;
-      top: -5px;
-      right: -5px;
-      font-size: 12px;
+      top: -0.15625rem;
+      right: -0.15625rem;
+      font-size: 0.375rem;
       color: red;
     }
   }
@@ -127,21 +89,6 @@ export default {
       color: #333;
       text-decoration: none;
     }
-  }
-}
-@media screen and(max-width:2160px) {
-  .song-item {
-    width: 33%;
-  }
-}
-@media screen and(max-width:1350px) {
-  .song-item {
-    width: 50%;
-  }
-}
-@media screen and(max-width:720px) {
-  .song-item {
-    width: 100%;
   }
 }
 </style>

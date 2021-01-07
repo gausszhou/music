@@ -21,7 +21,7 @@
         <i class="iconfont ft_28" :class="isPlaying  ? 'icon-zanting':'icon-bofang_huaban'" @click="toggle()"></i>
         <i class="iconfont ft_28 icon-caidan" @click="openDrawer()"></i>
       </div>
-      <md-progress-bar class="md-accent" md-mode="determinate" :md-value="amount"></md-progress-bar>
+      <!-- <md-progress-bar class="md-accent" md-mode="determinate" :md-value="amount"></md-progress-bar> -->
     </div>
     <audio v-show="false" ref="audio" :src="song.audioUrl" autoplay @timeupdate="onAudioTimeUpdate"></audio>
   </div>

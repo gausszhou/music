@@ -1,19 +1,19 @@
 <template>
-  <div>
+  <div class="music-home">
     <div class="play-list-box">
       <h3 class="title">网友精选碟</h3>
       <ul class="play-list">
-        <li class="list-item" v-for="sheet in playList" :key="sheet.id" @click="toDetail(sheet)">
+        <li class="list-item" v-for="sheet in playList" :key="sheet.id" @click="toDetailSheet(sheet)">
           <i class="list-item-count">
             <i class="iconfont icon-yinyue list-item-count-icon"></i>
-            {{toFixed(sheet.playCount)}}
+            {{sheet.playCount | numbertocount}}
           </i>
           <img class="list-item-img" :src="sheet.picUrl" />
           <span class="list-item-name">{{ sheet.name }}</span>
         </li>
       </ul>
     </div>
-    <div>
+    <div class="new-list-box">
       <h3 class="title">推荐新音乐</h3>
       <song-list-vue :itemList="musicList" :needSong="true"></song-list-vue>
     </div>
@@ -60,19 +60,13 @@ export default {
             picUrl: item.picUrl || '',
           };
         });
-      })
+        console.log(this.musicList[0]);
+      }
+      )
       .catch(() => { });
+
   },
   methods: {
-    toFixed(item) {
-      if (item > 10000) {
-        if (item > 10000 * 10000) {
-          return (item / (10000 * 10000)).toFixed(1) + '亿';
-        } else {
-          return (item / 10000).toFixed(1) + '万';
-        }
-      }
-    },
     toDetail(item) {
       this.$router.push({
         name: 'detail',
@@ -86,15 +80,18 @@ export default {
 </script>
 
 <style  lang="scss" scoped>
-.title {
-  margin: 20px 0 5px;
-  padding: 0 0 0 12px;
-  color: #333;
-  text-align: left;
-  font-family: Helvetica;
-  border-left: #d43c33 2px solid;
+.music-home {
+  margin-top: 2rem;
+  .title {
+    margin: 0.625rem 0 0.15625rem;
+    padding: 0 0 0 12px;
+    font-size: 0.625rem;
+    color: #333;
+    text-align: left;
+    font-family: Helvetica;
+    border-left: #d43c33 2px solid;
+  }
 }
-
 .play-list-box {
   .play-list {
     width: 100%;
@@ -106,24 +103,24 @@ export default {
       width: 33%;
       list-style: none;
       text-align: left;
-      margin-top: 12px;
+      margin-top: 0.375rem;
       position: relative;
       .list-item-count {
         position: absolute;
-        top: 5px;
-        right: 5px;
-        font-size: 12px;
+        top: 0.15625rem;
+        right: 0.15625rem;
+        font-size: 0.375rem;
         color: #fff;
         .list-item-count-icon {
-          font-size: 12px;
+          font-size: 0.375rem;
         }
       }
       .list-item-img {
         width: 100%;
       }
       .list-item-name {
-        margin: 5px;
-        font-size: 14px;
+        margin: 0.15625rem;
+        font-size: 0.375rem;
         text-overflow: -o-ellipsis-lastline;
         overflow: hidden;
         text-overflow: ellipsis;

@@ -1,18 +1,10 @@
 <template>
-  <md-bottom-bar class="tabbar">
-    <md-bottom-bar-item @click="goto('home')" :class="$route.path.includes('music')? 'active':'default'">
-      <i class="tabbaricon iconfont iconxianshi2"></i>
-      <p>听音乐</p>
-    </md-bottom-bar-item>
-    <md-bottom-bar-item @click="goto('youdao')" :class="$route.name=='youdao'? 'active':'default'">
-      <i class="tabbaricon iconfont iconditu1"></i>
-      <p>背单词</p>
-    </md-bottom-bar-item>
-    <md-bottom-bar-item @click="goto('note')" :class="$route.name=='note'? 'active':'default'">
-      <i class="tabbaricon iconfont iconditu1"></i>
-      <p>看博客</p>
-    </md-bottom-bar-item>
-  </md-bottom-bar>
+  <van-tabbar v-model="active" class="tabbar" active-color="#ee0a24" inactive-color="#000">
+    <van-tabbar-item name="home" icon="home-o" @click="goto('home')">首页</van-tabbar-item>
+    <van-tabbar-item name="subscribe" icon="search" @click="goto('home')">推荐</van-tabbar-item>
+    <van-tabbar-item name="sheet" icon="friends-o" @click="goto('home')">歌单</van-tabbar-item>
+    <van-tabbar-item name="mine" icon="setting-o" @click="goto('home')">我的</van-tabbar-item>
+  </van-tabbar>
 </template>
 
 <script>
@@ -20,7 +12,7 @@ export default {
   name: 'tabbarVue',
   data() {
     return {
-
+      active: 'home'
     };
   },
   methods: {
@@ -33,23 +25,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.tabbar {
-  background-color: #fff;
-  p {
-    margin: 8px 0 0 0;
-    font-size: 12px;
-  }
-}
-.active {
-  color: rgb(14, 180, 180);
-  background-color: rgba(14, 180, 180, 0.1);
-}
-.default {
-  color: #444;
-  background-color: #fff;
-}
-.tabbaricon {
-  font-size: 24px;
-  line-height: 1;
-}
 </style>

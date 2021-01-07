@@ -13,44 +13,57 @@ const routes = [
   {
     name: "login",
     path: '/login',
-    component: () => import("@/views/login.vue")
+    component: () => import("@/common/login.vue")
   },
   {
     name: "index",
     path: '/index',
-    component: () => import("@/views/index.vue"),
+    component: () => import("@/common/index.vue"),
+    meta: {
+      title: '索引'
+    },
     children: [
       {
-        name: "music",
-        path: 'music',
-        component: () => import("@/views/music.vue"),
+        name: "home",
+        path: 'home',
+        component: () => import("@/views/home/index.vue"),
+        meta: {
+          title: '首页'
+        }
+      },
+      {
+        name: "search",
+        path: 'search',
+        component: () => import("@/views/search/index.vue"),
+        meta: {
+          title: '搜索'
+        }
+      },
+      {
+        name: "detail",
+        path: 'detail',
+        component: () => import("@/views/detail/index.vue"),
+        meta: {
+          title: '详情'
+        },
         children: [
           {
-            name: "home",
-            path: 'home',
-            component: () => import("@/components/music/home.vue")
+            name: 'songSheet',
+            path: 'songSheet',
+            component: () => import("@/views/detail/songSheet.vue"),
+            meta: {
+              title: '歌单'
+            },
           },
           {
-            name: "search",
-            path: 'search',
-            component: () => import("@/components/music/search.vue")
-          },
-          {
-            name: "detail",
-            path: 'detail',
-            component: () => import("@/components/music/detail.vue")
+            name: 'singer',
+            path: 'singer',
+            component: () => import("@/views/detail/singer.vue"),
+            meta: {
+              title: '歌手'
+            },
           },
         ]
-      },
-      {
-        name: "youdao",
-        path: 'youdao',
-        component: () => import("@/views/youdao.vue"),
-      },
-      {
-        name: "note",
-        path: 'note',
-        component: () => import("@/views/note.vue"),
       },
     ],
   },

@@ -1,7 +1,3 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
 html,
 body,
 div,
@@ -127,28 +123,6 @@ table {
 	border-spacing: 0;
 }
 
-/*正常情况下滑块的样式*/
-
-::-webkit-scrollbar-thumb {
-	background-color: rgba(0, 0, 0, 0.05);
-	border-radius: 10px;
-	box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1);
-	display: none;
-}
-
-::-webkit-scrollbar {
-	width: 10px;
-	height: 10px;
-	display: none;
-}
-
-.overEllipsis {
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	word-break: normal;
-}
-
 // flex
 .display-flex {
 	display: flex;
@@ -176,6 +150,13 @@ table {
 
 .text-right {
 	text-align: right;
+}
+
+.overEllipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	word-break: normal;
 }
 
 // margin && padding

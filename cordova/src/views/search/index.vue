@@ -1,9 +1,7 @@
 <template>
   <div class="search">
-    <md-field class="search_input" md-clearable>
-      <label>搜索歌曲、歌手、专辑</label>
-      <md-input v-model="query" @keyup.enter="searchMusic()"></md-input>
-    </md-field>
+    <label>搜索歌曲、歌手、专辑</label>
+    <van-field v-model="query" @keyup.enter="searchMusic()"></van-field>
     <div class="hotSearch" v-show="beforeSearch">
       <span
         class="cursor_pointer hotWord"
@@ -78,7 +76,6 @@ export default {
   },
 };
 </script>
-
 
 <style lang="scss" scoped>
 .search {

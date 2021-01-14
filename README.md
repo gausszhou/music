@@ -2,23 +2,22 @@
 
 ## 说明 
 
-基于Vue.js开发一个跨平台音乐应用
-
-音乐资源：网易云音乐，QQ音乐(有点坑)  
-运行环境：Web，Android，Windows  
+基于Vue.js开发一个跨平台音乐应用  
+音乐资源：网易云音乐，QQ音乐  
+运行环境：Web，Android
 
 ## 在线资源
 
-接口地址1：http://netmusic.gausszhou.top  
-接口地址2：http://qqmusic.gausszhou.top  
+接口地址1：http://netmusic.gausszhou.top 网易云音乐  
+接口地址2：http://qqmusic.gausszhou.top  扣扣云音乐  
 预览地址1: http://gausszhou.gitee.io/leran-music/  
 
 ## 技术栈
 
-MVVM框架: Vue,Vue-CLI,Vue-router,Vuex  
-UI组件库: Element UI,Vue Material  
-跨平台库: Cordova,Electron  
-后端部署: Node.js,Nginx,Docker  
+MVVM框架: Vue, Vue-CLI, Vue-router, Vuex  
+UI组件库: Element UI, Vant UI
+跨平台库: Cordova, Uni-app, Electron  
+后端部署: Node.js, Nginx, Docker  
 
 ## Todo
 
@@ -32,13 +31,12 @@ UI组件库: Element UI,Vue Material
 - [x] 音量控制，循环，单曲，顺序，列表播放
 - [x] 桌面歌词
 - [ ] 歌曲详情页，歌词滚动，唱片机，评论
-- [ ] 播放列表 
 - [ ] 下载，批量下载
 - [ ] 登录，评论，我的歌单
 - [ ] 个人信息修改
 - [ ] 样式优化，交互细节 
 
-扣扣音乐(不一定会有)
+扣扣音乐
 
 - [ ] 推荐，歌单，搜索，播放
 - [ ] 电台，歌手，排行榜单
@@ -48,7 +46,7 @@ UI组件库: Element UI,Vue Material
 - [ ] 组件化
 
 PC端
-- [ ] Electron
+- [ ] Electron打包
 - [ ] 自定义标题栏
 
 移动端

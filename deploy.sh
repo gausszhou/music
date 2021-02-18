@@ -10,12 +10,12 @@ cd dist
 git init 
 git add .
 git commit -m "deploy $time"
-git branch dist 
-git checkout dist
+git branch gh-pages 
+git checkout gh-pages
 # 推送到git托管仓库
-git push  https://gitee.com/gausszhou/leran-music.git dist -f
+git push  git@github.com:gausszhou/music.git gh-pages -f
 # 打开管理网页
-echo https://gitee.com/gausszhou/leran-music/pages
+
 # 回到脚本执行时的目录
 cd - 
 # 脚本结束

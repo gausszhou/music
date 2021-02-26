@@ -8,7 +8,7 @@
 
 ## 在线资源
 
-接口地址：http://music.gausszhou.top  
+接口地址：http://musicapi.gausszhou.top  
 预览地址: http://gausszhou.top/music  
 
 ## 技术栈

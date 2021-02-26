@@ -23,7 +23,7 @@ function serialize(params) {
   return str.substr(0, str.length - 1);
 }
 // API接口服务器地址
-const baseUrl = 'https://music.gausszhou.top';
+const baseUrl = 'https://musicapi.gausszhou.top';
 
 const http = {
 

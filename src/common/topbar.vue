@@ -2,8 +2,8 @@
   <div class="top-container">
     <div class="left-box">
       <div class="icon-wrapper">
-        <a href="http://music.gausszhou.top" target="__blank">后台接口</a>
-        <a href="http://netmusic.gausszhou.top" target="__blank">项目地址</a>
+        <a href="http://musicapi.gausszhou.top" target="__blank">后台接口</a>
+        <a href="https://github.com/gausszhou/music" target="__blank" style="color:#409eff; margin:0 10px;">项目地址</a>
       </div>
       <div class="history-wrapper">
         <span class="iconfont icon-arrow-left" @click="go(-1)"></span>

@@ -1,4 +1,7 @@
 module.exports = {
+  // devServer: {
+  //   https: true
+  // },
   // 配置相对路径
   publicPath: process.env.NODE_ENV === "production" ? "./" : "/",
   // 取消生成map文件
